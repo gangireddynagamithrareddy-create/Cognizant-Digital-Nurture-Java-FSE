@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/ECommerceSearchFunction.iml" filepath="$PROJECT_DIR$/ECommerceSearchFunction.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/FactoryMethodPatternExample.iml" filepath="$PROJECT_DIR$/FactoryMethodPatternExample.iml" />
+>>>>>>> 51d569a2355591ca3043cf517773635a1445e09d
     </modules>
   </component>
 </project>
