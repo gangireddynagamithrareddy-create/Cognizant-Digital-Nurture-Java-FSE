@@ -9,7 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.cognizant.ormlearn.model.Country;
+import com.cognizant.ormlearn.model.Employee;
 import com.cognizant.ormlearn.service.CountryService;
+import com.cognizant.ormlearn.service.EmployeeService;
 
 @SpringBootApplication
 public class OrmLearnApplication {
@@ -18,24 +20,44 @@ public class OrmLearnApplication {
             LoggerFactory.getLogger(OrmLearnApplication.class);
 
     private static CountryService countryService;
+    private static EmployeeService employeeService;
 
     public static void main(String[] args) {
 
         ApplicationContext context =
                 SpringApplication.run(OrmLearnApplication.class, args);
 
-        countryService = context.getBean(CountryService.class);
+        employeeService = context.getBean(EmployeeService.class);
 
-        testSearchCountries();
+        testGetEmployee();
     }
 
-    private static void testSearchCountries() {
+    private static void testGetEmployee() {
 
         System.out.println("Start");
 
-        List<Country> countries = countryService.searchCountries("Uni");
+        Employee employee = employeeService.get(1);
 
-        countries.forEach(System.out::println);
+        System.out.println(employee);
+
+        System.out.println(employee.getDepartment());
+
+        employee.getSkillList().forEach(System.out::println);
+
+        System.out.println("End");
+    }
+
+    // Keep this method for later if needed
+    private static void testSearchCountries() {
+
+        countryService = null;
+
+        System.out.println("Start");
+
+        if (countryService != null) {
+            List<Country> countries = countryService.searchCountries("Uni");
+            countries.forEach(System.out::println);
+        }
 
         System.out.println("End");
     }
